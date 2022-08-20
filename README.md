@@ -1,3 +1,20 @@
+<h2>Front-end para montagem de computadores baseado em uma fonte de dados (API ou database). Feito em typescript.</h2>
+<ul>
+Frameworks utilizados:
+    <li>
+        Typescript
+    </li>
+    <li>
+        Next.js
+    </li>
+    <li>
+        React
+    </li>
+    <li>
+        Tailwind
+    </li>
+</ul>
+______________________________________________________________________________________
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
