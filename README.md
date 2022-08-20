@@ -1,6 +1,6 @@
 <h2>Front-end para montagem de computadores baseado em uma fonte de dados (API ou database). Feito em typescript.</h2>
 <ul>
-Frameworks utilizados:
+    <h3>Frameworks utilizados:</h3>
     <li>
         Typescript
     </li>
