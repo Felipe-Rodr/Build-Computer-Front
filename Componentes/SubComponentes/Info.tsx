@@ -19,19 +19,21 @@ const Info = ({Dados, Input, Parte, TraduzirParte}:InfoProps) => {
     let Info:JSX.Element = <div></div>
     if(Input){
         const Dado = GetParte(Dados, Input, Parte)
-        const PropertyArray = Object.getOwnPropertyNames(Dado)
-        Info = (
-            <ul className="ml-7 mt-4 pb-2 text-blue-500 italic">
-                {TraduzirParte(Parte)}:
-                {PropertyArray.map((Property,Index) => {
-                    return(
-                        <li key={Index} className="ml-5 mt-0">
-                            {Property}: {Dado![Property]}
-                        </li>
-                    )
-                })}
-            </ul>
-        )
+        if(Dado){
+            const PropertyArray = Object.entries(Dado)
+            Info = (
+                <ul className="ml-7 mt-4 pb-2 text-blue-500 italic">
+                    {TraduzirParte(Parte)}:
+                    {PropertyArray.map((Property,Index) => {
+                        return(
+                            <li key={Index} className="ml-5 mt-0">
+                                {Property[0]}: {Property[1]}
+                            </li>
+                        )
+                    })}
+                </ul>
+            )
+        }
     }
     return Info;
 }
