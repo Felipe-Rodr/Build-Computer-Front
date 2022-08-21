@@ -46,17 +46,23 @@ const ComputadorBuilder = ({Dados}:ComputadorBuilderProps) => {
             } 
         },
         RetirarParte : (Parte:Tipos['parte']) => {
-            let Index = MontagemPartes.findIndex((Partes) => Partes === Parte);
-            setMontagemPartes(MontagemPartes.filter((Partes) => Partes !== Parte));
-            setMontagem(Montagem.filter((Partes) => Montagem.indexOf(Partes) !== Index));
+            if(Parte === 'motherboard'){
+                let Index = MontagemPartes.findIndex((Partes) => Partes === 'power_supply');
+                setMontagemPartes(MontagemPartes.filter((Partes) => Partes === 'power_supply'));
+                setMontagem(Montagem.filter((Partes) => Montagem.indexOf(Partes) === Index));
+            } else {
+                let Index = MontagemPartes.findIndex((Partes) => Partes === Parte);
+                setMontagemPartes(MontagemPartes.filter((Partes) => Partes !== Parte));
+                setMontagem(Montagem.filter((Partes) => Montagem.indexOf(Partes) !== Index));
+            }
         }
     }
     
     return (
-        <div className="flex flex-col w-full h-fit">
+        <div className="flex flex-col w-auto h-fit">
             <AutoComplete
                 ref={AutoCompleteRef}
-                className="w-[calc(220px + 1rem)] m-7 text-blue-500 italic"
+                className="w-[90%] ml-7 mt-4 text-blue-500 italic"
                 Label={TraduzirParte(Parte)}
                 handleSubmit={handleSubmit} 
                 Clicked={Clicked}
@@ -71,14 +77,17 @@ const ComputadorBuilder = ({Dados}:ComputadorBuilderProps) => {
                     TraduzirParte={TraduzirParte}
                 />
             </div>
-            {Montagem.map((Parte, Index) => 
-                <Info
-                    key={Index}
-                    Dados={Dados}
-                    Input={Parte}
-                    Parte={MontagemPartes[Index]}
-                />)
-            }
+            <div className="flex flex-row overflow-x-auto">
+                {Montagem.map((Parte, Index) => 
+                    <Info
+                        key={Index}
+                        Dados={Dados}
+                        Input={Parte}
+                        Parte={MontagemPartes[Index]}
+                        TraduzirParte={TraduzirParte}
+                    />)
+                }
+            </div>
         </div>
     )
 }

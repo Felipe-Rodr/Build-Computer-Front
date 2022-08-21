@@ -12,18 +12,24 @@ interface InfoProps{
     },
     Input: string,
     Parte: Tipos['parte']
+    TraduzirParte: (Parte:Tipos['parte']) => string
 }
 
-const Info = ({Dados, Input, Parte}:InfoProps) => {
+const Info = ({Dados, Input, Parte, TraduzirParte}:InfoProps) => {
     let Info:JSX.Element = <div></div>
     if(Input){
         const Dado = GetParte(Dados, Input, Parte)
+        const PropertyArray = Object.getOwnPropertyNames(Dado)
         Info = (
-            <ul>
-                {Parte}:
-                <li>
-                    
-                </li>
+            <ul className="ml-7 mt-4 pb-2 text-blue-500 italic">
+                {TraduzirParte(Parte)}:
+                {PropertyArray.map((Property,Index) => {
+                    return(
+                        <li key={Index} className="ml-5 mt-0">
+                            {Property}: {Dado[Property]}
+                        </li>
+                    )
+                })}
             </ul>
         )
     }
