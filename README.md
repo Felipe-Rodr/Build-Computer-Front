@@ -14,6 +14,7 @@
         Tailwind
     </li>
 </ul>
+<h4> Projeto pode ser visualizado em: https://build-computer-front.vercel.app/<h4>
 <br>_________________________________________________<br>
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
