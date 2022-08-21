@@ -26,7 +26,7 @@ const Info = ({Dados, Input, Parte, TraduzirParte}:InfoProps) => {
                 {PropertyArray.map((Property,Index) => {
                     return(
                         <li key={Index} className="ml-5 mt-0">
-                            {Property}: {Dado[Property]}
+                            {Property}: {Dado![Property]}
                         </li>
                     )
                 })}
